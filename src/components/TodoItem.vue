@@ -1,7 +1,9 @@
 <template>
     <!-- Contenedor principal del ítem de tarea -->
-    <div>
+<div class="card my-3 shadow-sm"></div>
+<div class="card-body d-flex justify-content-between align-items-center"></div>
         <!-- Contenedor del título y el estado de la tarea -->
+
         <div>
             <!-- Muestra el título de la tarea y aplica un estilo tachado si la tarea está completada -->
             <!-- Comentario: Cambia este estilo o agrega clases personalizadas -->
@@ -11,7 +13,7 @@
 
             <!-- Muestra si la tarea está Completada o Pendiente -->
             <!-- Comentario: Puedes cambiar este texto o agregar etiquetas visuales (por ejemplo, con colores o iconos) -->
-            <span>
+            <span class="badge" :class="completed ? 'bg-success' : 'bg-warning'">
                 {{ completed ? 'Completada' : 'Pendiente' }}
             </span>
         </div>
@@ -21,18 +23,24 @@
             <!-- Botón para marcar la tarea como completada o pendiente -->
             <!-- Emite el evento 'toggle-completion' para indicar que se cambió el estado de la tarea -->
             <!-- Comentario: Personaliza el texto, estilo o reemplaza con un ícono (ej. ✔ / ✘) -->
-            <button @click="$emit('toggle-completion')">
-                Marcar como {{ completed ? 'Pendiente' : 'Completada' }}
+            <button
+            class="btn btn-outline-primary me-2" 
+            @click="$emit('toggle-completion')"
+            >
+            {{ completed ? 'Marcar como Pendiente' : 'Marcar como Completada' }}
             </button>
 
             <!-- Botón para eliminar la tarea de la lista -->
             <!-- Emite el evento 'delTodo' para indicar que se debe eliminar esta tarea -->
             <!-- Comentario: Modifica el estilo, el texto, o reemplaza con un ícono como una papelera -->
-            <button @click="$emit('delTodo')">
+            <button 
+            class="btn btn-outline-danger"
+          @click="$emit('delTodo')"
+            >
                 Eliminar
             </button>
         </div>
-    </div>
+        
 </template>
 
 <script>
@@ -52,5 +60,7 @@ export default {
 <style scoped>
 /* Puedes agregar tus propios estilos aquí */
 /* Por ejemplo, cambia el color de fondo de las tareas completadas */
-
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
 </style>

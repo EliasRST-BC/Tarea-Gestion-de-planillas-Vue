@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/addtask',
     name: 'AddTask', // Ruta para añadir tareas
-    component: AddTask // Aquí se debe cargar el componente AddTask
+    component: AddTask
     // Implementa la lógica para añadir nuevas tareas.
   },
   
@@ -41,7 +41,7 @@ const routes = [
     name: 'CombinedView',
     component: CombinedView
   }
-  // Las demás rutas deben ir aquí también
+  
 ];
 
 const router = new VueRouter({
